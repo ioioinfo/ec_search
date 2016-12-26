@@ -4,7 +4,7 @@ var server = new Hapi.Server();
 
 // Setup the server with a host and port
 server.connection({
-    port: parseInt(process.env.PORT, 10) || 8000,
+    port: parseInt(process.env.PORT, 10) || 8050,
     host: '0.0.0.0'
 });
 
@@ -61,10 +61,11 @@ server.register([
       register: require('./server/db/db_mysql.js')
     },
 	{
-      register: require('./server/assets/index.js')
-    },
-
-
+	  register: require('./server/controller/search_controller.js')
+	},
+	{
+	  register: require('./server/models/models.js')
+	},
 
 ], function () {
     //Start the server
