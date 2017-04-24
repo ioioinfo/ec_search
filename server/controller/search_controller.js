@@ -78,12 +78,12 @@ exports.register = function(server, options, next){
 						console.log("results:"+JSON.stringify(results));
 						return reply({"success":true,"message":"ok","rows":results.products,"service_info":service_info});
 					}else {
-						return reply({"success":false,"message":err,"service_info":service_info});
+						return reply({"success":false,"message":results.message,"service_info":service_info});
 					}
 				});
 			}
 		},
-		
+
     ]);
 
     next();
